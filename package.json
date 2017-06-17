@@ -1,0 +1,43 @@
+{
+  "name": "node-fe1-fpe",
+  "version": "0.0.1",
+  "description": "Node.js implementation of the FE1 Format Preserving Encryption algorithm.\u001b[D\u001b[H\u001b[H\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[D\u001b[A\u001b[A",
+  "main": "index.js",
+  "private": false,
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nanov/node-fe1-fpe.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "fe1",
+    "fpe",
+    "encryption",
+    "javascript"
+  ],
+  "author": "Dimitar Nanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nanov/node-fe1-fpe/issues"
+  },
+  "devDependencies": {
+    "eslint": ">=3.19.0",
+    "eslint-config-airbnb": ">=15.0.1",
+    "eslint-plugin-import": ">=2.2.0",
+    "eslint-plugin-jsx-a11y": ">=5.0.3",
+    "eslint-plugin-react": ">=7.0.1",
+    "expect.js": "^0.3.1",
+    "mocha": ">=3.4.2"
+  },
+  "homepage": "https://github.com/nanov/node-fe1-fpe"
+}
