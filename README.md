@@ -2,7 +2,7 @@
 A dependency-free Node.js implementation of Format Preserving Encryption using the FE1 scheme from the paper ["Format-Preserving Encryption" by Bellare, Rogaway, et al](http://eprint.iacr.org/2009/251).
 
 Ported from [java-fpe](https://github.com/Worldpay/java-fpe) which was ported from
-[DotFPE](https://dotfpe.codeplex.com/) which was ported from [Botan Library](http://botan.randombit.net) Version 0.0.1.
+[DotFPE](https://dotfpe.codeplex.com/) which was ported from [Botan Library](http://botan.randombit.net). Version 0.0.1.
 
 See [LICENSE.md](https://github.com/Worldpay/java-fpe/blob/master/LICENSE.md) for the full license.
 
