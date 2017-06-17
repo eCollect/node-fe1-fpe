@@ -19,7 +19,7 @@ const fe1 = require('node-fe1-fpe');
 
 // in possible values of 0-10000 encrypt the value of 1.
 const encryptedValue = fe1.encrypt(10001, 1, 'my-secret-key', 'my-non-secret-tweak'); // 4984
-const decryptedValue = fe1.encrypt(10001, encryptedValue, 'my-secret-key', 'my-non-secret-tweak'); // 1
+const decryptedValue = fe1.decrypt(10001, encryptedValue, 'my-secret-key', 'my-non-secret-tweak'); // 1
 ```
 
 ## Todo
