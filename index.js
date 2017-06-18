@@ -1,7 +1,7 @@
 'user strict';
 
 const FPEEncryptor = require('./lib/fpe_encryptor');
-const factor = require('./lib/factor');
+const factor = require('./lib/number-theory');
 
 
 module.exports = {
@@ -18,14 +18,14 @@ module.exports = {
 	encrypt(modulus, subject, key, tweak) {
 		const cipher = new FPEEncryptor(key, modulus, tweak);
 		const rounds = 3;
-		const [a, b] = factor(modulus);
+		const [firstFactor, secondFactor] = factor(modulus);
 
+		let right;
 		let x = +subject;
 
 		for (let i = 0; i < rounds; ++i) {
-			const left = Math.floor(x / b);
-			const right = x % b;
-			x = (a * right) + cipher.format(i, right).add(left).mod(a);
+			right = x % secondFactor;
+			x = (firstFactor * right) + cipher.format(i, right).add(Math.floor(x / secondFactor)).mod(firstFactor);
 		}
 
 		return x;
@@ -43,13 +43,15 @@ module.exports = {
 		const rounds = 3;
 		const [firstFactor, secondFactor] = factor(modulus);
 
+		let modulu;
+		let right;
+		let left;
 		let x = +cryptedSubject;
 
 		for (let i = rounds - 1; i >= 0; i--) {
-			const w = x % firstFactor;
-			const right = Math.floor(x / firstFactor);
-			const modulu = cipher.format(i, right).subtract(w).mod(firstFactor);
-			const left = (modulu > 0) ? firstFactor - modulu : modulu;
+			right = Math.floor(x / firstFactor);
+			modulu = cipher.format(i, right).subtract(x % firstFactor).mod(firstFactor);
+			left = (modulu > 0) ? firstFactor - modulu : modulu;
 			x = (secondFactor * left) + right;
 		}
 
