@@ -1,7 +1,7 @@
 'user strict';
 
 const FPEEncryptor = require('./lib/fpe_encryptor');
-const factor = require('./lib/number-theory');
+const factor = require('./lib/factor');
 
 
 module.exports = {
