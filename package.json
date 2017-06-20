@@ -1,7 +1,7 @@
 {
   "name": "node-fe1-fpe",
   "version": "0.0.2",
-  "description": "Node.js implementation of the FE1 Format Preserving Encryption algorithm.\u001b[D\u001b[H\u001b[H\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[D\u001b[A\u001b[A",
+  "description": "Node.js implementation of the FE1 Format Preserving Encryption algorithm.",
   "main": "index.js",
   "private": false,
   "engines": {
