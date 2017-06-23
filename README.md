@@ -22,6 +22,19 @@ const encryptedValue = fe1.encrypt(10001, 1, 'my-secret-key', 'my-non-secret-twe
 const decryptedValue = fe1.decrypt(10001, encryptedValue, 'my-secret-key', 'my-non-secret-tweak'); // 1
 ```
 
+Alternatively you could pass a buffer instance instead of string key ( this allows reading the keys from files )
+
+```javascript
+const fe1 = require('node-fe1-fpe');
+
+// just an example, buffer would ideally come file.
+const secretKeyBuffer = Buffer.from('my-secret-key', 'utf16le');
+
+// in possible values of 0-10000 encrypt the value of 1.
+const encryptedValue = fe1.encrypt(10001, 1, secretKeyBuffer, 'my-non-secret-tweak'); // 4984
+const decryptedValue = fe1.decrypt(10001, encryptedValue, secretKeyBuffer, 'my-non-secret-tweak'); // 1
+```
+
 ## Todo
 
 - [ ] Proper tests
