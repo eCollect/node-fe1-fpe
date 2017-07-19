@@ -1,6 +1,6 @@
 {
   "name": "node-fe1-fpe",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Node.js implementation of the FE1 Format Preserving Encryption algorithm.",
   "main": "index.js",
   "private": false,
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nanov/node-fe1-fpe.git"
+    "url": "git+https://github.com/eCollect/node-fe1-fpe.git"
   },
   "keywords": [
     "node",
@@ -23,7 +23,9 @@
     "fe1",
     "fpe",
     "encryption",
-    "javascript"
+    "javascript",
+    "format",
+    "preserving"
   ],
   "author": "Dimitar Nanov",
   "license": "MIT",
@@ -39,5 +41,5 @@
     "expect.js": "^0.3.1",
     "mocha": ">=3.4.2"
   },
-  "homepage": "https://github.com/nanov/node-fe1-fpe"
+  "homepage": "https://github.com/eCollect/node-fe1-fpe"
 }
