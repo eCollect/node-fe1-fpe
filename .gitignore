@@ -62,3 +62,7 @@ typings/
 
 # vscode
 .vscode
+
+
+# runs directory where we put runs
+/runs
