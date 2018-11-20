@@ -11,7 +11,8 @@
     "lib": "./lib"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "nyc mocha ./test",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -33,13 +34,13 @@
     "url": "https://github.com/nanov/node-fe1-fpe/issues"
   },
   "devDependencies": {
-    "eslint": ">=3.19.0",
-    "eslint-config-airbnb": ">=15.0.1",
-    "eslint-plugin-import": ">=2.2.0",
-    "eslint-plugin-jsx-a11y": ">=5.0.3",
-    "eslint-plugin-react": ">=7.0.1",
+    "chai": "^4.2.0",
+    "eslint": "^5.9.0",
+    "eslint-config-ecollect-base": "0.0.2",
+    "eslint-plugin-import": "^2.14.0",
     "expect.js": "^0.3.1",
-    "mocha": ">=3.4.2"
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
   },
   "homepage": "https://github.com/eCollect/node-fe1-fpe"
 }
