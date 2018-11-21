@@ -63,6 +63,8 @@ typings/
 # vscode
 .vscode
 
+# package-lock.json
+package-lock.json
 
 # runs directory where we put runs
 /runs
