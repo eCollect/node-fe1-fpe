@@ -1,6 +1,8 @@
 # node-fe1-fpe
 A dependency-free Node.js implementation of Format Preserving Encryption.
 
+[![Build Status](https://travis-ci.org/eCollect/node-fe1-fpe.svg?branch=master)](https://travis-ci.org/eCollect/node-fe1-fpe) [![npm version](https://badge.fury.io/js/node-fe1-fpe.svg)](https://badge.fury.io/js/node-fe1-fpe) [![Coverage Status](https://coveralls.io/repos/github/eCollect/node-fe1-fpe/badge.svg?branch=master)](https://coveralls.io/github/eCollect/node-fe1-fpe?branch=master) [![Known Vulnerabilities](https://snyk.io/test/github/eCollect/node-fe1-fpe/badge.svg)](https://snyk.io/test/github/eCollect/node-fe1-fpe) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 ### Theory
 
 Format preserving encryption (FPE) refers to a set of techniques for encrypting data such that the ciphertext has the same format as the plaintext. For instance, you can use FPE to encrypt credit card numbers with valid checksums such that the ciphertext is also an credit card number with a valid checksum, or similarly for bank account numbers, US Social Security numbers, or even more general mappings like English words onto other English words.
@@ -57,4 +59,4 @@ The implementation is as stable as a rock for a modulus up to 10 000 000. It is 
 ## License
 
 Copyright &copy; 2017-8 eCollect AG.
-Licensed under the [MIT](https://github.com/nanov/node-fe1-fpe/blob/master/LICENSE) license.
+Licensed under the [MIT](LICENSE) license.
