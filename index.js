@@ -17,18 +17,18 @@ module.exports = {
 	 */
 	encrypt(modulus, subject, key, tweak) {
 		const cipher = new FPEEncryptor(key, modulus, tweak);
-		const rounds = 5;
+		const rounds = 3;
 		const [firstFactor, secondFactor] = factor(modulus);
 
 		let right;
-		let x = BigInt(+subject);
+		let x = +subject;
 
 		for (let i = 0; i < rounds; ++i) {
 			right = x % secondFactor;
-			x = (firstFactor * right) + (cipher.format(i, right) + x / secondFactor) % firstFactor;
+			x = (firstFactor * right) + cipher.format(i, right).add(Math.floor(x / secondFactor)).mod(firstFactor);
 		}
 
-		return x.toString();
+		return x;
 	},
 	/**
 	 * Generic Z_n FPE decryption, FE1 scheme.
@@ -40,21 +40,21 @@ module.exports = {
 	 */
 	decrypt(modulus, cryptedSubject, key, tweak) {
 		const cipher = new FPEEncryptor(key, modulus, tweak);
-		const rounds = 5;
+		const rounds = 3;
 		const [firstFactor, secondFactor] = factor(modulus);
 
 		let modulu;
 		let right;
 		let left;
-		let x = BigInt(+cryptedSubject);
+		let x = +cryptedSubject;
 
 		for (let i = rounds - 1; i >= 0; i--) {
-			right = x / firstFactor;
-			modulu = (cipher.format(i, right) - ( x % firstFactor )) % firstFactor;
+			right = Math.floor(x / firstFactor);
+			modulu = cipher.format(i, right).subtract(x % firstFactor).mod(firstFactor);
 			left = (modulu > 0) ? firstFactor - modulu : modulu;
 			x = (secondFactor * left) + right;
 		}
 
-		return x.toString();
+		return x;
 	},
 };

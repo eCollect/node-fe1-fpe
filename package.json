@@ -1,6 +1,6 @@
 {
   "name": "node-fe1-fpe",
-  "version": "0.1.0",
+  "version": "0.0.6",
   "description": "Node.js implementation of the FE1 Format Preserving Encryption algorithm.",
   "main": "index.js",
   "private": false,
@@ -12,16 +12,11 @@
   },
   "scripts": {
     "test": "nyc mocha ./test",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "rebuild": "node-gyp rebuild",
-    "install": "npm run rebuild || echo \"Couldn't build bindings. Non-native version used.\""
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eCollect/node-fe1-fpe.git"
-  },
-  "bugs": {
-    "url": "https://github.com/nanov/node-fe1-fpe/issues"
   },
   "keywords": [
     "node",
@@ -35,6 +30,9 @@
   ],
   "author": "Dimitar Nanov",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nanov/node-fe1-fpe/issues"
+  },
   "devDependencies": {
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
@@ -44,9 +42,5 @@
     "mocha": "^5.2.0",
     "nyc": "^13.1.0"
   },
-  "homepage": "https://github.com/eCollect/node-fe1-fpe",
-  "dependencies": {},
-  "contributors": [
-    "Dimitar Nanov <dimitar@nanov.io> (https://nanov.io)"
-  ]
+  "homepage": "https://github.com/eCollect/node-fe1-fpe"
 }
