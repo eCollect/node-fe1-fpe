@@ -6,10 +6,18 @@ const b = BigInt('12');
 
 const c = a + b;
 
+const key = 'my-secret-key';
+const tweak = 'my-non-secret-tweak';
+
 const fe1 = require('../index')
 
-const modulu = 10n ** 16n;
-const encryptedValue = fe1.encrypt(modulu, 1, 'my-secret-key', 'my-non-secret-tweak'); // 4984
-const decryptedValue = fe1.decrypt(modulu, encryptedValue, 'my-secret-key', 'my-non-secret-tweak'); // 1
+const modulus = 99999999;
+
+const EV = fe1.encrypt(modulus, 1, key, tweak);
+
+const mdls = 1000;
+const pool = Array.from(Array(mdls).keys());
+const encrypts = pool.map(n => fe1.encrypt(mdls, n, 'key', 'tweak'));
+
 
 console.log('a');

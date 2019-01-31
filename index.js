@@ -2,6 +2,7 @@
 
 const FPEEncryptor = require('./lib/fpe_encryptor');
 const factor = require('./lib/factor');
+const assureBigInt = require('./lib/assureBigInt');
 
 
 module.exports = {
@@ -16,8 +17,9 @@ module.exports = {
 	 * @return {number} the encrypted version of <code>subject</code>.
 	 */
 	encrypt(modulus, subject, key, tweak) {
+		modulus = assureBigInt(modulus);
 		const cipher = new FPEEncryptor(key, modulus, tweak);
-		const rounds = 5;
+		const rounds = 3;
 		const [firstFactor, secondFactor] = factor(modulus);
 
 		let right;
@@ -28,7 +30,7 @@ module.exports = {
 			x = (firstFactor * right) + (cipher.format(i, right) + x / secondFactor) % firstFactor;
 		}
 
-		return x.toString();
+		return Number(x);
 	},
 	/**
 	 * Generic Z_n FPE decryption, FE1 scheme.
@@ -39,8 +41,9 @@ module.exports = {
 	 * @return {number} The decrypted number
 	 */
 	decrypt(modulus, cryptedSubject, key, tweak) {
+		modulus = assureBigInt(modulus);
 		const cipher = new FPEEncryptor(key, modulus, tweak);
-		const rounds = 5;
+		const rounds = 3;
 		const [firstFactor, secondFactor] = factor(modulus);
 
 		let modulu;
@@ -55,6 +58,6 @@ module.exports = {
 			x = (secondFactor * left) + right;
 		}
 
-		return x.toString();
+		return Number(x);
 	},
 };

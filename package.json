@@ -13,7 +13,6 @@
   "scripts": {
     "test": "nyc mocha ./test",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "rebuild": "node-gyp rebuild",
     "install": "npm run rebuild || echo \"Couldn't build bindings. Non-native version used.\""
   },
   "repository": {
@@ -38,15 +37,17 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
-    "eslint": "^5.9.0",
-    "eslint-config-ecollect-base": "0.0.2",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint": "^5.12.1",
+    "eslint-config-ecollect-base": "0.1.1",
+    "eslint-rule-composer": "^0.3.0",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0"
   },
   "homepage": "https://github.com/eCollect/node-fe1-fpe",
-  "dependencies": {},
   "contributors": [
     "Dimitar Nanov <dimitar@nanov.io> (https://nanov.io)"
-  ]
+  ],
+  "dependencies": {
+    "bigint-buffer": "^1.1.2"
+  }
 }
