@@ -1,5 +1,5 @@
-# node-fe1-fpe
-A dependency-free Node.js implementation of Format Preserving Encryption.
+# node-fe1-fpe ( beta )
+A ~~dependency-free~~ Node.js implementation of Format Preserving Encryption.
 
 [![Build Status](https://travis-ci.org/eCollect/node-fe1-fpe.svg?branch=master)](https://travis-ci.org/eCollect/node-fe1-fpe) [![npm version](https://badge.fury.io/js/node-fe1-fpe.svg)](https://badge.fury.io/js/node-fe1-fpe) [![Coverage Status](https://coveralls.io/repos/github/eCollect/node-fe1-fpe/badge.svg?branch=master)](https://coveralls.io/github/eCollect/node-fe1-fpe?branch=master) [![Known Vulnerabilities](https://snyk.io/test/github/eCollect/node-fe1-fpe/badge.svg)](https://snyk.io/test/github/eCollect/node-fe1-fpe) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
