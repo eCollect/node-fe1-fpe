@@ -17,11 +17,36 @@ describe('fe1 should', () => {
 	});
 
 	it('have the correct api', () => {
+		expect(api.getRound).to.be.a('function');
+		expect(api.setRound).to.be.a('function');
 		expect(api.encrypt).to.be.a('function');
 		expect(api.decrypt).to.be.a('function');
 	});
 
 	describe('work with native bindings and', () => {
+		it('default to 3 rounds', () => {
+			expect(api.getRound()).to.be.equal(3);
+		});
+
+		it('set round if parameter is positive int', () => {
+			api.setRound(4);
+			expect(api.getRound()).to.be.equal(4);
+			api.setRound(2);
+			api.setRound(2); // check repeat calls
+			expect(api.getRound()).to.be.equal(2);
+			api.setRound(3); // restore default
+		});
+
+		it('not set round if parameter is not positive or not int', () => {
+			expect(api.getRound()).to.be.equal(3);
+			expect(() => api.setRound(1.1)).to.throw(Error,
+				'Parameter <round> must be a positive integer.');
+			expect(api.getRound()).to.be.equal(3);
+			expect(() => api.setRound(0)).to.throw(Error,
+				'Parameter <round> must be a positive integer.');
+			expect(api.getRound()).to.be.equal(3);
+		});
+
 		it('encrypt and decrypt correctly with BigInt modulu', () => {
 			const EV = api.encrypt(bigIntModulus, subject, key, tweak);
 			const DV = api.decrypt(bigIntModulus, EV, key, tweak);
