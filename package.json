@@ -12,8 +12,7 @@
   },
   "scripts": {
     "test": "nyc mocha ./test",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "install": "npm run rebuild || echo \"Couldn't build bindings. Non-native version used.\""
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -36,18 +35,17 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.2.0",
-    "coveralls": "^3.0.2",
-    "eslint": "^5.12.1",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.6.0",
     "eslint-config-ecollect-base": "0.1.1",
-    "eslint-rule-composer": "^0.3.0",
-    "mocha": "^5.2.0",
-    "nyc": "^13.1.0"
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1"
   },
   "homepage": "https://github.com/eCollect/node-fe1-fpe",
   "contributors": [
     "Dimitar Nanov <dimitar@nanov.io> (https://nanov.io)"
   ],
   "dependencies": {
-    "bigint-buffer": "^1.1.2"
+    "bigint-buffer": "^1.1.5"
   }
 }
