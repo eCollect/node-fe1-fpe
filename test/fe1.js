@@ -17,34 +17,14 @@ describe('fe1 should', () => {
 	});
 
 	it('have the correct api', () => {
-		expect(api.getRound).to.be.a('function');
-		expect(api.setRound).to.be.a('function');
 		expect(api.encrypt).to.be.a('function');
 		expect(api.decrypt).to.be.a('function');
 	});
 
 	describe('work with native bindings and', () => {
-		it('default to 3 rounds', () => {
-			expect(api.getRound()).to.be.equal(3);
-		});
-
-		it('set round if parameter is positive int', () => {
-			api.setRound(4);
-			expect(api.getRound()).to.be.equal(4);
-			api.setRound(2);
-			api.setRound(2); // check repeat calls
-			expect(api.getRound()).to.be.equal(2);
-			api.setRound(3); // restore default
-		});
-
-		it('not set round if parameter is not positive or not int', () => {
-			expect(api.getRound()).to.be.equal(3);
-			expect(() => api.setRound(1.1)).to.throw(Error,
-				'Parameter <round> must be a positive integer.');
-			expect(api.getRound()).to.be.equal(3);
-			expect(() => api.setRound(0)).to.throw(Error,
-				'Parameter <round> must be a positive integer.');
-			expect(api.getRound()).to.be.equal(3);
+		it('throw if rounds is not positive or int', () => {
+			expect(() => api.encrypt(bigIntModulus, subject, key, tweak, 1.1)).to.throw(Error, 'Parameter <round> must be a positive integer.');
+			expect(() => api.decrypt(bigIntModulus, subject, key, tweak, 1.1)).to.throw(Error, 'Parameter <round> must be a positive integer.');
 		});
 
 		it('encrypt and decrypt correctly with BigInt modulu', () => {
@@ -53,6 +33,14 @@ describe('fe1 should', () => {
 
 			expect(DV).to.be.equal(subject);
 		});
+
+		it('encrypt and decrypt correctly with BigInt modulu and rounds set to 5', () => {
+			const EV = api.encrypt(bigIntModulus, subject, key, tweak, 5);
+			const DV = api.decrypt(bigIntModulus, EV, key, tweak, 5);
+
+			expect(DV).to.be.equal(subject);
+		});
+
 
 		it('encrypt correctly with given key and tweak as strings', () => {
 			const EV = api.encrypt(modulus, subject, key, tweak);
