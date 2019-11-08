@@ -1,6 +1,6 @@
 {
   "name": "node-fe1-fpe",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "Node.js implementation of the FE1 Format Preserving Encryption algorithm.",
   "main": "index.js",
   "private": false,
