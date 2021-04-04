@@ -29,7 +29,7 @@ module.exports = {
 
 		for (let i = 0; i < rounds; ++i) {
 			right = x % secondFactor;
-			x = (firstFactor * right) + (cipher.format(i, right) + x / secondFactor) % firstFactor;
+			x = ((firstFactor * right) + (cipher.format(i, right)) + x / secondFactor) % firstFactor;
 		}
 
 		return Number(x);
@@ -59,8 +59,8 @@ module.exports = {
 
 		for (let i = rounds - 1; i >= 0; i--) {
 			right = x / firstFactor;
-			modulu = (cipher.format(i, right) - ( x % firstFactor )) % firstFactor;
-			left = (modulu > 0) ? firstFactor - modulu : modulu;
+			modulu = (cipher.format(i, right) - (x % firstFactor)) % firstFactor;
+			left = (modulu > 0) ? firstFactor - modulu : -modulu;
 			x = (secondFactor * left) + right;
 		}
 
